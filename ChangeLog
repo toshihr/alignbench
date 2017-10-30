@@ -1,0 +1,70 @@
+20121217
+ Todo: paired wilcoxの結果がnanになっているのがある。バグ？
+ Todo: T検定に対応
+ Todo: Sabmark風, Prefab4風MultiInput pairwiseCompareをサポート
+   multiple-multiple: 通常のモード    /ref/*.ref_fasta
+   multiple-allpair: sabmark風モード /ref/*refname/seq_num1_seq_num2.pair_fasta
+   multiple-onepair: prefab風モード  /ref/*refname/1_2.pair_fastaをreferenceとする
+   生成したアライメントファイルから目当てのpairwisefastaを抜き出す機能を実装し、score計算をする際に毎度自動生成させる。
+   databaseがrefを生成する際に%IDも計算しているがここがsabmark風だとめんどいかも
+ Todo: alignbench, extraのインストーラーを作成. あるいは圧縮ファイルで解凍するだけなものを作成するスクリプトを作成
+ Todo: sabmarkのスコアプログラム(linuxオンリー)に対応する
+ Todo: 前提として必要なパッケージを整理しドキュメントにまとめる
+ 以下、論文を書きながらできること
+ Todo: 引数でplugin位置, 統計ライブラリ, データベースの位置などを指定できるようにする
+ Todo: 起動時に各pluginの設定が正しいか確認。scoreは正しく実行できる？。databaseは存在する？alignerは存在する？
+ 以下，論文後のオプション
+ Todo: 統計だけ、スコア計算だけを行うモードをサポート。その際、過去のアライメント結果を入力として受け付ける
+ Todo: データベース並列化からアライイナー並列化へ. データベースはタンデムでよい.
+ Todo: 将来的にfasta->msfの自動変換する仕組みをつくる
+ Todo: グラフ中どれがベストかを書き加える(オプションあとまわし)
+ Todo: Hadoop分散処理対応(論文にしたあとでもいいかも)
+
+20121214
+ Fixed: statistical testがされないバグを修正
+ Fixed: python2,python3で動作が違うのを修正(ソート順がなぜか違うのが原因)
+ Fixed: Instance Variable と Class Variable を混ぜていたためデータベースクラスがバグっていたのを修正
+ Improved: データベースにファイル名フィルタリング(正規表現)をサポート.paliのグループ分けで利用
+
+20121212
+ Improved: balibase3 BB(full seq),BBS(trimmed seq), coreblock(upper) に対応
+
+20121210
+ Fixed: %IDでしぼるのがうまくいっていないのを修正. python2 にて/が切り捨てになっているのが原因だった.
+ Changed: ソースコードの分割完了
+ Improved: 途中での終了に対応
+ Improved: 統計ライブラリの切り替えに部分対応
+
+20121209
+ Fixed: RANGES関数がpython2でおかしかったのを修正
+ Changed: minipairwise,homstrad,prefab databaseを更新
+
+20121207
+ Changed: プラグインフォルダに対応
+ Changed: データベースのフォーマットを変更中
+
+20121205
+ Changed: 構造を相当かえて設定ファイルの見通しをよくした
+ Changed: 単体実行ファイルを作成できるようにした
+20121126
+ Fixed: aligner xがないときもstats.csvを出力するように修正
+20121122
+ Fixed: support python 2.7
+   # -*- coding: utf-8 -*- の追加
+   type(a) == list -> a.__class__name__  == 'list'
+   print() -> print('')
+ Changed: Multi processingに対応
+
+20121121
+ Changed: タイム計測のタイミングを修正
+ Changed: 出力をカラー表示へ変更
+
+20121120
+ Changed: 容易な記述のため、オプション指定をtupleを止めてlistへ
+ Fixed: 各オプションの空白はなくても大丈夫なように変更.最後が=以外のときは自動で空白を付け足す
+ Fixed: Noneとか最後に付け足さなくてもよいように修正
+ Todo: 時間計測をAlignerごとに行う
+ Todo: 並列化
+ Todo: コードの整理
+ Todo: bench_datasets,AlignerSetの最後のNoneをとってしまったがただしく動くか要検証
+ Todo: グラフを描く機能

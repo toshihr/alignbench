@@ -1,0 +1,6 @@
+.DS_Store
+.Tags
+.tags_sorted_by_file
+*.pyc
+extra/src/qscore_src/*.o
+*~

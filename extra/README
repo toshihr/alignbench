@@ -1,0 +1,10 @@
+this extra directory contains qscore.
+
+qscore
+ original source: http://www.drive5.com/qscore/
+ we fix some small errors to support recent gcc.
+
+--- install ---
+
+$> sh compile.sh
+
